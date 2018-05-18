@@ -1,0 +1,18 @@
+
+{% extends "main_43/base.html" %}
+{% load bootstrap4 %}
+{% load static %}
+    {% block header %}
+
+    {% endblock header %}
+      
+    {% block content %}
+     <form action="{% url 'upload' %}" method='post' enctype="multipart/form-data">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons %}
+            <button name="submit" class="btn btn-primary">Добавить песню</button>
+        {% endbuttons %}
+    </form>
+
+  {% endblock content %}

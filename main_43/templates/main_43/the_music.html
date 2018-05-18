@@ -1,0 +1,32 @@
+{% extends "main_43/base.html" %}
+{% load bootstrap4 %}
+{% load static %}
+
+
+
+    {% block header %}
+    <div id="wrapper">
+        <h1>Плеер<em> тест 4</em></h1>
+        <p class="small">Вы можете добавить музыку по <a href="{% url 'upload' %}">ссылке</a></p>
+    {% endblock header %}
+      
+    {% block content %}
+      <audio preload></audio>
+    <ol>
+        {% for m in music %}
+        <li><a href="#" data-src="{{ m.file.url}}">{{ m.name}}</a></li>
+         {% empty %}
+         <h3>Музыки нет, вы можете добавить её по <a href="{% url 'upload' %}">ссылке</a></h3>
+         {% endfor %}
+            </ol>
+    </div>
+
+    <div id="shortcuts">
+      <div>
+        <h1>Управление:</h1>
+        <p><em>&rarr;</em> Следующий трек</p>
+        <p><em>&larr;</em> Предыдущий трек</p>
+        <p><em>Space</em> Пауза/Воспроизвести</p>
+      </div>
+    </div>
+{% endblock content %}
